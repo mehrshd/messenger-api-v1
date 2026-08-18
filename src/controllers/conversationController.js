@@ -5,10 +5,7 @@ const getConversationsController = async (req, res, next) => {
     const userId = Number(req.user.id);
     const conversations = await getConversations({ userId });
 
-    return res.status(200).json({
-      success: true,
-      conversations,
-    });
+    return res.status(200).json(conversations);
   } catch (error) {
     console.error('Get conversations error:', error);
     return next(error);
